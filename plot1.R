@@ -9,8 +9,15 @@ names(power_consumption) <- c("Date","Time","Global_active_power","Global_reacti
 #Create a subset in order to save memory consumption
 subpower_consumption <- subset(power_consumption,power_consumption$Date=="1/2/2007" | power_consumption$Date =="2/2/2007")
 
+#Generate png
+
+png("plot1.png", width=480, height=480)
+
 #Basic plot function for histograms
 hist(as.numeric(as.character(subpower_consumption$Global_active_power)),col="red",main="Global Active Power",xlab="Global Active Power(kilowatts)")
 
 #Annotations
 title(main="Global Active Power")
+
+#close png
+dev.off()
